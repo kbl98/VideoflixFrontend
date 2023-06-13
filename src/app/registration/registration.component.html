@@ -1,0 +1,31 @@
+<div class="login-container">
+    <form (submit)="registrate()">
+    <mat-card>
+        <mat-card-content class="login-fields">
+            <h1>Registrieren</h1>
+            <mat-form-field class="w100">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                <mat-error class="yellow" *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            <mat-form-field>
+                <mat-label>Enter your password</mat-label>
+                <input required matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" name="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+            <mat-form-field>
+                <mat-label>Enter your password</mat-label>
+                <input required matInput [type]="hideConfirm ? 'password' : 'text'"  name="confirmPassword" [(ngModel)]="confirmPassword">
+                <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <mat-error class="yellow" *ngIf="confirmPassword !=password">{{getConfirmPasswordErrorMessage()}}</mat-error>
+            <button class="submit-btn" type=submit mat-raised-button>Registrieren</button>
+        </mat-card-content>
+        <mat-icon (click)="back()"  class="back-arrow" aria-hidden="false" fontIcon="arrow_back"></mat-icon>
+      </mat-card>
+    </form>
+</div>

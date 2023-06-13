@@ -1,0 +1,32 @@
+.login-container{
+    width:100vw;
+    top:250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative
+}
+.login-fields{
+    padding:10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: red;
+    h1{
+        color:white
+    }
+    .submit-btn{
+        background-color: rgb(3, 3, 58);
+        color:white;
+    }
+}
+.back-arrow{
+    position:absolute;
+    left:20px;
+    bottom: 20px;
+}
+
+.yellow{
+    color:yellow;
+}
