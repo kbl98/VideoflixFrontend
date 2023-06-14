@@ -15,16 +15,17 @@ export class RegistrationComponent {
   password="";
   hide = true;
   hideConfirm=true;
-  email = new FormControl('', [Validators.required, Validators.email]);
+  emailControl=new FormControl('', [Validators.required, Validators.email]);
+  email ="";
   back(){
     this.router.navigateByUrl('/');
   }
   getErrorMessage() {
-    if (this.email.hasError('required')) {
+    if (this.emailControl.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.emailControl.hasError('email') ? 'Not a valid email' : '';
   }
 
   getConfirmPasswordErrorMessage() {
@@ -37,16 +38,43 @@ export class RegistrationComponent {
     return '';
   }
 
-  registrate(){
+  async registrate(){
+   let url="http://127.0.0.1:8000/"
    if(this.getConfirmPasswordErrorMessage()=="" && this.getErrorMessage()==""){
     console.log("ready to send")
-    let body=JSON.stringify({
+    let registrationData={
       email:this.email,
       password:this.password
-    })
-    //fetch server for registration
-   }
     }
+    let body=JSON.stringify(registrationData)
+    //fetch server for registration
+    await this.postToBackend(body,url)
+   }
+   
+  
+    }
+
+  async postToBackend(body:any,url:any){
+    try{
+      let response=await fetch(url + 'register/',{
+        method: "POST",
+        headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: body,
+      mode: "cors",});
+      let json=await response.json();
+      console.log(json)
+     
+        this.router.navigateByUrl('login')
+    }catch (error){
+      console.error(error);
+    }
+
+  }
+  
+    
   }
 
 

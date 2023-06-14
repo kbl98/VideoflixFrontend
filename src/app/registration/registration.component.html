@@ -5,8 +5,8 @@
             <h1>Registrieren</h1>
             <mat-form-field class="w100">
                 <mat-label>Enter your email</mat-label>
-                <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                <mat-error class="yellow" *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                <input matInput placeholder="pat@example.com" [(ngModel)]="email"[formControl]="emailControl" required>
+                <mat-error class="yellow" *ngIf="emailControl.invalid">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
             <mat-form-field>
                 <mat-label>Enter your password</mat-label>
