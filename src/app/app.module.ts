@@ -14,6 +14,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
     HeaderComponent,
     WelcomeComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    MainpageComponent
   ],
   imports: [
     BrowserModule,

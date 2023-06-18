@@ -73,7 +73,7 @@ export class LoginComponent {
          // this.router.navigateByUrl('mainpage')
          this.service.updateHeadLogText("Ausloggen");
       console.log(this.service.headLogText);
-    
+      this.router.navigateByUrl('mainpage')
       }catch (error){
         console.error(error);
       }
