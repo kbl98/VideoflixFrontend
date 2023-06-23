@@ -15,6 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MainpageComponent } from './mainpage/mainpage.component';
     MatInputModule,
     MatIconModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
