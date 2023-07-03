@@ -4,12 +4,18 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { VideodetailComponent } from './videodetail/videodetail.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'mainpage', component: MainpageComponent }
+  { path: 'mainpage', component: MainpageComponent,
+  children: [
+    {path: 'mainpage/detail/:id', component: VideodetailComponent}
+  ] },
+  
+
 
 ];
 

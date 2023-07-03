@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VideodetailComponent } from './videodetail/videodetail.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     WelcomeComponent,
     LoginComponent,
     RegistrationComponent,
-    MainpageComponent
+    MainpageComponent,
+    VideodetailComponent
   ],
   imports: [
     BrowserModule,

@@ -3,8 +3,9 @@ body{
     background-image: url("assets/img/backgroun.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 100vh;
 }
-html, body { height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .w100{
