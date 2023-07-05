@@ -5,15 +5,20 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { VideodetailComponent } from './videodetail/videodetail.component';
+import { RegulatoryComponent } from './regulatory/regulatory.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { AuthGuard } from './auth.guard';
+
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'mainpage', component: MainpageComponent,
-  children: [
-    {path: 'mainpage/detail/:id', component: VideodetailComponent}
-  ] },
+  { path: 'mainpage', component: MainpageComponent,canActivate: [AuthGuard]},
+  { path: 'detail/:id', component: VideodetailComponent,canActivate: [AuthGuard]},
+  { path: 'regulatory', component: RegulatoryComponent},
+  { path: 'impressum', component: ImpressumComponent},
+  
   
 
 

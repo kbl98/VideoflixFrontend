@@ -26,8 +26,11 @@ export class HeaderComponent implements OnInit{
     this.router.navigateByUrl('/login');
     }
     else{
-      this.service.updateHeadLogText("Einloggen");
+      this.service.updateHeadLogText();
+      this.service.token="";
+      localStorage.setItem("token","")
       this.router.navigateByUrl('');
+      
     }
   }
 

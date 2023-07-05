@@ -1,9 +1,14 @@
-<div class="video-container">
+<div class="video-container-detail" *ngIf="selectedVideo">
+    <a href="mainpage">Back to Overview</a>
+    <h3>{{selectedVideo['title']}}</h3>
     <div class="video-preview-container" >
-        <h3></h3>
-        <video width="80vw" height="80vh" controls="controls" preload="metadata">
+       
+        <video class="video"width="80vw" height="80vh" controls="controls" preload="metadata">
             <source [src]="'http://127.0.0.1:8000' + selectedVideo['file']" type="video/mp4">
           </video>
-        
+          <div class="info-video">
+            {{selectedVideo.description}}
+        </div>    
     </div>
+   
 </div>

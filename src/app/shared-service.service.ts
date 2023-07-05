@@ -8,16 +8,22 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedServiceService {
-  headLogText: string=""
+  token:any="";
+  headLogText: string="";
   headLogTextChanged: Subject<string> = new Subject<string>();
   constructor() {
-    this.headLogText = 'Einloggen'; // Standardwert festlegen
+    //this.headLogText = 'Einloggen'; // Standardwert festlegen
+    this.updateHeadLogText();
   }
 
   // ...
 
-  updateHeadLogText(newText: string) {
-    this.headLogText = newText;
-    this.headLogTextChanged.next(newText);
+  updateHeadLogText() {
+    if(this.token){
+      this.headLogText = "Ausloggen"
+    }else{
+      this.headLogText = "Einloggen"
+    }
+    this.headLogTextChanged.next(this.headLogText); 
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SharedServiceService } from '../shared-service.service';
 
 @Component({
   selector: 'app-videodetail',
@@ -8,14 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VideodetailComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,private service:SharedServiceService) {}
   selectedVideo:any;
   url="http://127.0.0.1:8000/";
   id:any="";
 
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.service.token=localStorage.getItem('token')
+    this.service.updateHeadLogText()
     this.getDataFromServer();
     
 }
@@ -30,12 +32,13 @@ getDataFromServer(): void {
 
 
 async getVideosFromServer(){
+  this.id = await this.route.snapshot.paramMap.get('id');
   //let url="http://127.0.0.1:8000/"
   let response= await fetch(this.url + "videos/"+this.id,{
     method: "GET",
     headers: {
     Accept: "application/json, text/plain, */*",
-    "Content-Type": "application/json",
+    "Content-Type": "application/json",Authorization:this.service.token
   },
   mode: "cors",})
   let json=await response.json()

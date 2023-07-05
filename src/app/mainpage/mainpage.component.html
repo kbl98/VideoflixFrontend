@@ -1,15 +1,15 @@
 <div class="main-container">
 <h1>Videos</h1>
 <div class="video-overview">
-    <div class="video-preview-container" (click)="showDetail()"[routerLink]="['mainpage/detail/',video.id  ]" routerLinkActive="active" *ngFor="let video of allVideos">
+    <div class="video-preview-container" (click)="showDetail(video.id)"  *ngFor="let video of allVideos">
         <h3>{{video.title}}</h3>
-        <video width="200" height="200" controls="controls" preload="metadata">
+        <video width="200" height="200"  preload="metadata">
             <source [src]="'http://127.0.0.1:8000' + video.file" type="video/mp4">
           </video>
         
     </div>
 </div>
+<button>Neues Video laden</button>
 
-<router-outlet class="video-detail" id="video-detail"></router-outlet>
-</div>>
+</div>
 

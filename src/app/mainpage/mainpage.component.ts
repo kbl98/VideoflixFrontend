@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SharedServiceService } from '../shared-service.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -9,14 +10,20 @@ import { Router } from '@angular/router';
 })
 export class MainpageComponent implements OnInit {
 
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient,private router:Router,private service:SharedServiceService) { }
   allVideos:any=[];
   url:any="http://127.0.0.1:8000/"
   
 
+  
+
 
   ngOnInit(): void {
+    this.service.token=localStorage.getItem('token')
+    this.service.updateHeadLogText();
     this.getDataFromServer();
+    
+    console.log(this.service.token)
   }
 
   getDataFromServer(): void {
@@ -29,11 +36,12 @@ export class MainpageComponent implements OnInit {
 
   async getVideosFromServer(){
     //let url="http://127.0.0.1:8000/"
+    this.service.token=await localStorage.getItem('token')
     let response= await fetch(this.url + "videos/",{
       method: "GET",
       headers: {
       Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
+      "Content-Type": "application/json",Authorization:this.service.token
     },
     mode: "cors",})
     let json=await response.json()
@@ -51,7 +59,7 @@ export class MainpageComponent implements OnInit {
       method: "GET",
       headers: {
       Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
+      "Content-Type": "application/json",Authorization:this.service.token
     },
     mode: "cors",})
     let json=await response.json()
@@ -59,8 +67,8 @@ export class MainpageComponent implements OnInit {
     return json
    } 
    
-showDetail(){
-  let videodetail:any=document.getElementById("video-detail");
-  videodetail.style.display="unset"
+showDetail(id:any){
+  this.router.navigateByUrl('detail/'+id)
+ 
 }
 }

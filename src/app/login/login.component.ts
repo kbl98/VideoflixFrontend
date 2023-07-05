@@ -71,7 +71,8 @@ export class LoginComponent {
         localStorage.setItem('token','Token '+json.token)
         console.log("Token set!")
          // this.router.navigateByUrl('mainpage')
-         this.service.updateHeadLogText("Ausloggen");
+         this.service.updateHeadLogText();
+         this.service.token=json.token
       console.log(this.service.headLogText);
       this.router.navigateByUrl('mainpage')
       }catch (error){

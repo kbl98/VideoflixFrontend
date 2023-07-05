@@ -47,3 +47,17 @@ h1{
     background-color: black;
 
 }
+
+button{
+    position: absolute;
+    right:12px;
+    background-color: greenyellow;
+    border-radius: 3px;
+    border:solid 1px black;
+    padding: 3px;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(203, 255, 47);
+    }
+
+}

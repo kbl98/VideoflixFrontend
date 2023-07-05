@@ -17,6 +17,9 @@ import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VideodetailComponent } from './videodetail/videodetail.component';
+import { FooterComponent } from './footer/footer.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { RegulatoryComponent } from './regulatory/regulatory.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { VideodetailComponent } from './videodetail/videodetail.component';
     LoginComponent,
     RegistrationComponent,
     MainpageComponent,
-    VideodetailComponent
+    VideodetailComponent,
+    FooterComponent,
+    ImpressumComponent,
+    RegulatoryComponent
   ],
   imports: [
     BrowserModule,
