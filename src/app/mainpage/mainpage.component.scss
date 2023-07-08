@@ -14,7 +14,8 @@ h1{
 
 .video-overview{
     flex-wrap: wrap;
-    display:flex
+    display:flex;
+    justify-content: center;
 }
 
 .video-preview-container{

@@ -12,6 +12,8 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      this.sharedService.token=localStorage.getItem('token')
+      console.log(this.sharedService.token)
       if (this.sharedService.token) {
         return true;
       } else {
