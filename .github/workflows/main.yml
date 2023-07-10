@@ -22,7 +22,7 @@ jobs:
       run: npm ci
 
     - name: Build Angular project
-      run: ng build 
+      run: ng build --prod
 
     - name: FTP Upload
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
