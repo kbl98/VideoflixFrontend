@@ -30,7 +30,7 @@ jobs:
       run: npm run build
       
     - name: Update Base Href Path
-      run: sed -i 's|<base href="/">|<base href="/Videoflix/videoflix-front/">|' index.html
+      run: sed -i 's|<base href="/">|<base href="/Videoflix/videoflix-front/">|' ./dist/index.html
       working-directory: ${{ github.workspace }}  
     
     - name: Sync Files
