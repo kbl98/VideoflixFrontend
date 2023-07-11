@@ -27,11 +27,11 @@ jobs:
       run: npm install
 
     - name: Build Project
-      run: npm run build
+      run: npm run build --base-href="/Videoflix/videoflix-front/"
       
-    - name: Update Base Href Path
-      run: sed -i 's|<base href="/">|<base href="/Videoflix/videoflix-front/">|' ./dist/videoflix-front
-      working-directory: ${{ github.workspace }}  
+    #- name: Update Base Href Path
+     # run: sed -i 's|<base href="/">|<base href="/Videoflix/videoflix-front/">|' ./dist/videoflix-front
+     # working-directory: ${{ github.workspace }}  
     
     - name: Sync Files
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
