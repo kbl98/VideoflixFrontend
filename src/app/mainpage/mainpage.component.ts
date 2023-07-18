@@ -23,15 +23,11 @@ export class MainpageComponent implements OnInit {
     this.service.token=localStorage.getItem('token')
     this.service.updateHeadLogText();
     this.getDataFromServer();
-    
-    console.log(this.service.token)
   }
 
   getDataFromServer(): void {
     this.getVideosFromServer().then(data => {
-      console.log(data);
       this.allVideos = data;
-      console.log(this.allVideos)
     });
   }
 
@@ -46,7 +42,6 @@ export class MainpageComponent implements OnInit {
     },
     mode: "cors",})
     let json=await response.json()
-    console.log(json)
     return json
    } 
 
@@ -64,7 +59,6 @@ export class MainpageComponent implements OnInit {
     },
     mode: "cors",})
     let json=await response.json()
-    console.log(json)
     return json
    } 
    

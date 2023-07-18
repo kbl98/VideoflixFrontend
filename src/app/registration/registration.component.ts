@@ -42,7 +42,6 @@ export class RegistrationComponent {
    //let url="http://127.0.0.1:8000/"
    let url="https://backend.kbl-developement.de/"
    if(this.getConfirmPasswordErrorMessage()=="" && this.getErrorMessage()==""){
-    console.log("ready to send")
     let registrationData={
       email:this.email,
       password:this.password
@@ -66,7 +65,6 @@ export class RegistrationComponent {
       body: body,
       mode: "cors",});
       let json=await response.json();
-      console.log(json)
      
         this.router.navigateByUrl('login')
     }catch (error){

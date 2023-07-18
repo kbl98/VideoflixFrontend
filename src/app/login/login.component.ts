@@ -43,7 +43,6 @@ export class LoginComponent {
     //let url="http://127.0.0.1:8000/"
     let url="https://backend.kbl-developement.de/"
     if(this.getPasswordErrorMessage()==""){
-     console.log("ready to send")
      let loginData={
        email:this.email,
        password:this.password
@@ -52,7 +51,6 @@ export class LoginComponent {
      //fetch server for registration
      await this.postToBackend(body,url)
      this.service.headLogText="Ausloggen"
-     console.log(this.service.headLogText)
     }
     
    
@@ -68,13 +66,10 @@ export class LoginComponent {
         body: body,
         mode: "cors",});
         let json=await response.json();
-        console.log(json)
         localStorage.setItem('token','Token '+json.token)
-        console.log("Token set!")
          // this.router.navigateByUrl('mainpage')
          this.service.updateHeadLogText();
          this.service.token=json.token
-      console.log(this.service.headLogText);
       this.router.navigateByUrl('mainpage')
       }catch (error){
         console.error(error);

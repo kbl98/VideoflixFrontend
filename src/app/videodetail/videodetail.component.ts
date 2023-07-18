@@ -25,9 +25,7 @@ export class VideodetailComponent implements OnInit{
 
 getDataFromServer(): void {
   this.getVideosFromServer().then(data => {
-    console.log(data);
     this.selectedVideo = data;
-    console.log(this.selectedVideo)
   });
 }
 
@@ -43,7 +41,6 @@ async getVideosFromServer(){
   },
   mode: "cors",})
   let json=await response.json()
-  console.log(json)
   return json
  } 
 
@@ -51,7 +48,6 @@ getFile(size:any){
   let s=parseFloat(size)
   let selectedFile=this.selectedVideo['file_'+s]
   this.selectedVideo.file=selectedFile;
-  console.log(this.selectedVideo.file)
 }
 
 getVideoSource(): string {
