@@ -4,7 +4,7 @@
     <div class="video-preview-container" (click)="showDetail(video.id)"  *ngFor="let video of allVideos">
         <h3>{{video.title}}</h3>
         <video width="200" height="200"  preload="metadata">
-            <source [src]="'http://127.0.0.1:8000' + video.file" type="video/mp4">
+            <source [src]="'https://backend.kbl-developement.de' + video.file" type="video/mp4">
           </video>
         
     </div>

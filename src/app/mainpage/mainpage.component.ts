@@ -12,7 +12,8 @@ export class MainpageComponent implements OnInit {
 
   constructor(private http: HttpClient,private router:Router,private service:SharedServiceService) { }
   allVideos:any=[];
-  url:any="http://127.0.0.1:8000/"
+  //url:any="http://127.0.0.1:8000/"
+  url:any="https://backend.kbl-developement.de/"
   
 
   

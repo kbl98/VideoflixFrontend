@@ -11,7 +11,8 @@ export class VideodetailComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,private service:SharedServiceService) {}
   selectedVideo:any;
-  url="http://127.0.0.1:8000/";
+  //url="http://127.0.0.1:8000/";
+  url="https://backend.kbl-developement.de/"
   id:any="";
 
 
@@ -46,6 +47,15 @@ async getVideosFromServer(){
   return json
  } 
 
+getFile(size:any){
+  let s=parseFloat(size)
+  let selectedFile=this.selectedVideo['file_'+s]
+  this.selectedVideo.file=selectedFile;
+  console.log(this.selectedVideo.file)
+}
 
+getVideoSource(): string {
+  return 'https://backend.kbl-developement.de' + this.selectedVideo['file'];
+}
 
 }

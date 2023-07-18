@@ -39,7 +39,8 @@ export class RegistrationComponent {
   }
 
   async registrate(){
-   let url="http://127.0.0.1:8000/"
+   //let url="http://127.0.0.1:8000/"
+   let url="https://backend.kbl-developement.de/"
    if(this.getConfirmPasswordErrorMessage()=="" && this.getErrorMessage()==""){
     console.log("ready to send")
     let registrationData={

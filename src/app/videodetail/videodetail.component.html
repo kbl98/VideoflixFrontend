@@ -4,11 +4,17 @@
     <div class="video-preview-container" >
        
         <video class="video"width="80vw" height="80vh" controls="controls" preload="metadata">
-            <source [src]="'http://127.0.0.1:8000' + selectedVideo['file']" type="video/mp4">
+            <source [src]=getVideoSource() type="video/mp4">
           </video>
           <div class="info-video">
             {{selectedVideo.description}}
-        </div>    
+        </div> 
+        <div class="resolution-cont">
+            <button (click)="getFile(480)">480</button>
+            <button (click)="getFile(720)">720</button>
+            <button (click)="getFile(1000)">1020</button>
+
+        </div>   
     </div>
    
 </div>

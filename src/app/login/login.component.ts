@@ -40,7 +40,8 @@ export class LoginComponent {
   }
   
   async logIn(){
-    let url="http://127.0.0.1:8000/"
+    //let url="http://127.0.0.1:8000/"
+    let url="https://backend.kbl-developement.de/"
     if(this.getPasswordErrorMessage()==""){
      console.log("ready to send")
      let loginData={
