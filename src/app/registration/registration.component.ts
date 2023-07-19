@@ -49,6 +49,8 @@ export class RegistrationComponent {
     let body=JSON.stringify(registrationData)
     //fetch server for registration
     await this.postToBackend(body,url)
+    await this.emailSend()
+    this.router.navigateByUrl('login')
    }
    
   
@@ -65,14 +67,23 @@ export class RegistrationComponent {
       body: body,
       mode: "cors",});
       let json=await response.json();
-     
-        this.router.navigateByUrl('login')
+      
+        
     }catch (error){
       console.error(error);
     }
 
   }
-  
+
+  navigateLogin(){
+    this.router.navigateByUrl('login')
+  }
+  async emailSend(){
+    let element:any=document.getElementById("sent");
+    
+    element.style.display = "block"
+    await new Promise(resolve => setTimeout(resolve, 3000));
+  }
     
   }
 

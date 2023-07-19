@@ -22,6 +22,22 @@
         color:white;
     }
 }
+
+.info-sent{
+    display: none;
+    position:absolute;
+    top:150px;
+    bottom:150px;
+    width:50vw;
+    height:50vh;
+    border:solid 1px greenyellow;
+    background-color: darkgray;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 100px;
+    border-radius: 16px;
+    z-index: 7;
+}
 .back-arrow{
     position:absolute;
     left:20px;
