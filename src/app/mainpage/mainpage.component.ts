@@ -15,6 +15,13 @@ export class MainpageComponent implements OnInit {
   //url:any="http://127.0.0.1:8000/"
   url:any="https://backend.kbl-developement.de/"
   
+  videofile!: any;
+  title!: string;
+  description!: string;
+  inputTitle: string = '';
+  inputDescription: string = '';
+
+  uploading: boolean = false;
 
   
 
@@ -40,7 +47,8 @@ export class MainpageComponent implements OnInit {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",Authorization:this.service.token
     },
-    mode: "cors",})
+   // mode: "cors",
+  })
     let json=await response.json()
     return json
    } 
@@ -66,4 +74,60 @@ showDetail(id:any){
   this.router.navigateByUrl('detail/'+id)
  
 }
+
+/*onFileSelected(event: any) {
+  if (event.target.files.length > 0) {
+      this.videofile = event.target.files[0];
+  }
+}*/
+
+onFileSelected(event: any) {
+  const fileInput = event.target;
+  this.videofile = fileInput.files[0]; // Save the selected file to your component's variable
 }
+
+async uploadVideo(){
+  this.uploading = true;
+  /*const data = {
+    title:this.title,
+    description:this.description,
+    file:this.videofile
+  }
+  let body=JSON.stringify(data)
+  
+  console.log(data)*/
+  
+   const data=new FormData()
+   data.append('title',this.title)
+   data.append('description',this.description)
+   data.append('file',this.videofile)
+   console.log(this.videofile)
+  
+    this.service.token=await localStorage.getItem('token')
+    let response= await fetch(this.url + "videos/",{
+      method: "POST",
+      headers: {
+      //Accept: "application/json, text/plain, */*",
+      //"Content-Type": "application/json",
+      Authorization:this.service.token
+    },
+    body:data,
+    //mode: "cors",
+  }
+    )
+    let json=await response.json()
+    let element:any=document.getElementById("upload-cont")
+    element.style.display="none"
+   } 
+
+   toggleNone(){
+    let element:any=document.getElementById("upload-cont")
+    if(element.style.display=="none"){
+        element.style.display="block"}
+        else{
+        element.style.display="none"
+    }
+   }
+ 
+}
+

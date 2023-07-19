@@ -51,6 +51,7 @@ h1{
 
 button{
     position: absolute;
+    bottom:-50px;
     right:12px;
     background-color: greenyellow;
     border-radius: 3px;
@@ -61,4 +62,55 @@ button{
         background-color: rgb(203, 255, 47);
     }
 
+}
+
+.upload-cont{
+    background-color: black;
+    position: absolute;
+    bottom:50px;
+    z-index: 10;
+    left: calc(50vw - 200px);
+    display:none;
+    padding: 20px;
+    width:400px;
+    .headline{
+        font-size:26px !important
+    }
+    input{
+        height:32px;
+        width:400px;
+        background-color: gray;
+        box-sizing: border-box;
+        border:solid greenyellow 1px;
+        
+    }
+    textarea{
+        height:100px;
+        width:400px;
+        box-sizing: border-box;
+        background-color: gray;
+        border-left:solid greenyellow 1px;
+        border-right:solid greenyellow 1px;
+        color: white;
+    }
+    button{
+        margin-right: calc(50% - 50px);
+        margin-left: calc(50% - 50px);
+        width:100px;
+        position: relative !important;
+        background-color: greenyellow;
+        border-radius: 3px;
+        border:solid 1px black;
+        padding: 3px;
+        margin-right:calc(50% - 50px);
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(203, 255, 47);
+        }
+    }
+
+}
+
+.headline{
+    font-size:26px;
 }

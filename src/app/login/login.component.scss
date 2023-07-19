@@ -1,10 +1,9 @@
 .login-container{
-    width:100vw;
-    top:250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position:relative
+    position:relative;
+    height:85vh;
 }
 .login-fields{
     padding:10px;

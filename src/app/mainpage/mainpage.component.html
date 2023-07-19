@@ -9,7 +9,37 @@
         
     </div>
 </div>
-<!--<button>Neues Video laden</button>-->
+<form #videoForm="ngForm">
+<div class="upload-cont" id="upload-cont">
+    <h1 class="headline">Upload a new Video</h1>
+    
+      <input
+      required
+      name="title"
+        type="text"
+        class="input-text"
+        placeholder="Title..."
+        [(ngModel)]="title"
+      />
+      <textarea
+      name="description"
+      required
+        placeholder="Description..."
+        [(ngModel)]="description"
+      ></textarea>
+      <input  #fileInput name="file" required accept=".mp4" type="file" class="input-file" (change)="onFileSelected($event)" />
+      <button
+      type="submit"
+      class="uploadbtn"
+      [disabled]="uploading || videoForm.invalid! || !fileInput.value"
+      placeholder="mp4-file"
+      (click)="uploadVideo()"
+    >
+      {{ uploading ? "loading.." : "Upload" }}
+    </button>
+</div>
+</form>
+<button (click)="toggleNone()">Neues Video laden</button>
 
 </div>
 
