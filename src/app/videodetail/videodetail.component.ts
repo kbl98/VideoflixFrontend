@@ -39,7 +39,8 @@ async getVideosFromServer(){
     Accept: "application/json, text/plain, */*",
     "Content-Type": "application/json",Authorization:this.service.token
   },
-  //mode: "cors",
+  //mode:"no-cors"
+  mode: "cors",
 })
   let json=await response.json()
   return json

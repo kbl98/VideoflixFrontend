@@ -47,7 +47,8 @@ export class MainpageComponent implements OnInit {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",Authorization:this.service.token
     },
-   // mode: "cors",
+    //mode:"no-cors"
+     mode: "cors",
   })
     let json=await response.json()
     return json
@@ -65,7 +66,9 @@ export class MainpageComponent implements OnInit {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",Authorization:this.service.token
     },
-    mode: "cors",})
+    //mode:"no-cors"
+    mode: "cors",
+  })
     let json=await response.json()
     return json
    } 
@@ -107,12 +110,12 @@ async uploadVideo(){
     let response= await fetch(this.url + "videos/",{
       method: "POST",
       headers: {
-      //Accept: "application/json, text/plain, */*",
-      //"Content-Type": "application/json",
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
       Authorization:this.service.token
     },
     body:data,
-    //mode: "cors",
+    mode: "cors",
   }
     )
     let json=await response.json()

@@ -64,7 +64,8 @@ export class LoginComponent {
           "Content-Type": "application/json",
         },
         body: body,
-        mode: "cors",});
+        mode: "cors",
+      });
         let json=await response.json();
         localStorage.setItem('token','Token '+json.token)
          // this.router.navigateByUrl('mainpage')
