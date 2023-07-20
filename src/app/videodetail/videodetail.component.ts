@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedServiceService } from '../shared-service.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { SharedServiceService } from '../shared-service.service';
 })
 export class VideodetailComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute,private service:SharedServiceService) {}
+  constructor(private route: ActivatedRoute,private service:SharedServiceService,private router:Router) {}
   selectedVideo:any;
   //url="http://127.0.0.1:8000/";
   url="https://backend.kbl-developement.de/"
@@ -54,6 +54,10 @@ getFile(size:any){
 
 getVideoSource(): string {
   return 'https://backend.kbl-developement.de' + this.selectedVideo['file'];
+}
+
+naviMainpage(){
+  this.router.navigateByUrl('mainpage')
 }
 
 }

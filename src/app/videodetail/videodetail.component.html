@@ -1,5 +1,5 @@
 <div class="video-container-detail" *ngIf="selectedVideo">
-    <a href="mainpage">Back to Overview</a>
+    <a (click)="naviMainpage()">Back to Overview</a>
     <h3>{{selectedVideo['title']}}</h3>
     <div class="video-preview-container" >
        
