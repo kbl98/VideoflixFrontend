@@ -110,12 +110,10 @@ async uploadVideo(){
     let response= await fetch(this.url + "videos/",{
       method: "POST",
       headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
       Authorization:this.service.token
     },
     body:data,
-    mode: "cors",
+    //mode: "cors",
   }
     )
     let json=await response.json()
