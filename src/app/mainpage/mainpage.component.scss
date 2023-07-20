@@ -82,8 +82,14 @@ button{
         background-color: gray;
         box-sizing: border-box;
         border:solid greenyellow 1px;
-        
     }
+
+    input::placeholder{
+        color:white;}
+        
+    textarea::placeholder{
+        color:white;}
+
     textarea{
         height:100px;
         width:400px;
@@ -93,6 +99,7 @@ button{
         border-right:solid greenyellow 1px;
         color: white;
     }
+
     button{
         margin-right: calc(50% - 50px);
         margin-left: calc(50% - 50px);
