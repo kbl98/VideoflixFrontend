@@ -8,6 +8,7 @@ import { VideodetailComponent } from './videodetail/videodetail.component';
 import { RegulatoryComponent } from './regulatory/regulatory.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { AuthGuard } from './auth.guard';
+import { ResetComponent } from './reset/reset.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,8 @@ const routes: Routes = [
   { path: 'detail/:id', component: VideodetailComponent,canActivate: [AuthGuard]},
   { path: 'regulatory', component: RegulatoryComponent},
   { path: 'impressum', component: ImpressumComponent},
+  { path: 'reset', component: ResetComponent},
+
   
   
 

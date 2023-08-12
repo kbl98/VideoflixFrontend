@@ -84,7 +84,11 @@ export class RegistrationComponent {
     element.style.display = "block"
     await new Promise(resolve => setTimeout(resolve, 3000));
   }
+
+  
     
   }
+
+
 
 

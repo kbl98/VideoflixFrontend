@@ -78,6 +78,8 @@ export class LoginComponent {
   
     }
     
-
+    reset(){
+      this.router.navigateByUrl('reset')
+    }
   
 }

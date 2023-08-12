@@ -18,7 +18,8 @@
               <mat-error class="yellow" *ngIf="!password">{{getPasswordErrorMessage()}}</mat-error>
             <button class="submit-btn" type=submit mat-raised-button>Login</button>
         </mat-card-content>
-        <mat-icon (click)="back()"  class="back-arrow" aria-hidden="false" fontIcon="arrow_back"></mat-icon>
+        
+        <a class="reset" (click)="reset()">Reset Password</a><mat-icon (click)="back()"  class="back-arrow" aria-hidden="false" fontIcon="arrow_back"></mat-icon>
     </form>  
     </mat-card>
       

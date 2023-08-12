@@ -20,6 +20,7 @@ import { VideodetailComponent } from './videodetail/videodetail.component';
 import { FooterComponent } from './footer/footer.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { RegulatoryComponent } from './regulatory/regulatory.component';
+import { ResetComponent } from './reset/reset.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { RegulatoryComponent } from './regulatory/regulatory.component';
     VideodetailComponent,
     FooterComponent,
     ImpressumComponent,
-    RegulatoryComponent
+    RegulatoryComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

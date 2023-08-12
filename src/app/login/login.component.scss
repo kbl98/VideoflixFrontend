@@ -18,6 +18,7 @@
     .submit-btn{
         background-color: rgb(3, 3, 58);
         color:white;
+        margin-bottom:32px; ;
     }
 }
 .back-arrow{
@@ -28,4 +29,15 @@
 
 .yellow{
     color:yellow;
+}
+
+.reset{
+    text-decoration: none;
+    color:yellow;
+    position: absolute;
+    bottom:2px;
+    right:2px;
+     &:hover{
+        cursor: pointer;
+     }
 }

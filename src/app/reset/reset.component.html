@@ -1,17 +1,17 @@
 <div class="login-container">
-    <form (submit)="registrate()">
+    <form (submit)="reset()">
     <mat-card>
         <mat-card-content class="login-fields">
           <div class="info-sent" id="sent">
-            Registrierungsmail wurde versendet! Bitte schaue im Emailpostfach nach und verifiziere Dich!
+            Resetanfrage gesendet..
           </div>
-            <h1>Registrieren</h1>
+            <h1>Reset Password</h1>
             <mat-form-field class="w100">
                 <mat-label>Enter your email</mat-label>
                 <input matInput placeholder="pat@example.com" [(ngModel)]="email"[formControl]="emailControl" required>
                 <mat-error class="yellow" *ngIf="emailControl.invalid">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
-            <mat-form-field>
+              <mat-form-field>
                 <mat-label>Enter your password</mat-label>
                 <input required matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" name="password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -26,10 +26,12 @@
                 </button>
               </mat-form-field>
               <mat-error class="yellow" *ngIf="confirmPassword !=password">{{getConfirmPasswordErrorMessage()}}</mat-error>
-            <button class="submit-btn" type=submit mat-raised-button>Registrieren</button>
+             
+            <button class="submit-btn" type=submit mat-raised-button>Passwort reset</button>
         </mat-card-content>
         <mat-icon (click)="back()"  class="back-arrow" aria-hidden="false" fontIcon="arrow_back"></mat-icon>
        
       </mat-card>
     </form>
 </div>
+
