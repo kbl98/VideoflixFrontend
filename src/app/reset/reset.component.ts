@@ -24,7 +24,7 @@ export class ResetComponent implements OnInit{
   resetCode=''
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.queryParams.subscribe(params => {
       this.resetCode = params['code'];
       if (this.resetCode) {
         // Hier kannst du den Reset-Code verwenden
@@ -68,6 +68,7 @@ export class ResetComponent implements OnInit{
         password: this.password,
         resetCode:this.resetCode,
       };
+      console.log(this.resetCode)
       let body = JSON.stringify(registrationData);
       //fetch server for registration
       let response = await this.postToBackend(body, url);
