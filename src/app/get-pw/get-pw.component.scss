@@ -1,0 +1,50 @@
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:85vh;
+    
+}
+.login-fields{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: red;
+    padding:10px;
+    position: relative;
+    h1{
+        color:white
+    }
+    .submit-btn{
+        background-color: rgb(3, 3, 58);
+        color:white;
+    }
+}
+
+.info-sent{
+    display: none;
+    position:absolute;
+    top:20px;
+    bottom:150px;
+    width:300px;
+    height:300px;
+    border:solid 1px greenyellow;
+    background-color: rgb(174, 88, 88);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 100px;
+    border-radius: 16px;
+    z-index: 7;
+}
+.back-arrow{
+    position:absolute;
+    left:20px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.yellow{
+    color:yellow;
+}
+

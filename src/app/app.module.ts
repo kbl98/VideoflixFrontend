@@ -21,6 +21,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { RegulatoryComponent } from './regulatory/regulatory.component';
 import { ResetComponent } from './reset/reset.component';
+import { GetPwComponent } from './get-pw/get-pw.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ResetComponent } from './reset/reset.component';
     FooterComponent,
     ImpressumComponent,
     RegulatoryComponent,
-    ResetComponent
+    ResetComponent,
+    GetPwComponent
   ],
   imports: [
     BrowserModule,
