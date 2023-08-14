@@ -13,31 +13,28 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './reset.component.html',
   styleUrls: ['./reset.component.scss'],
 })
-export class ResetComponent implements OnInit{
-  constructor(private router: Router,private route: ActivatedRoute) {}
+export class ResetComponent implements OnInit {
+  constructor(private router: Router, private route: ActivatedRoute) {}
   confirmPassword = '';
   password = '';
   hide = true;
   hideConfirm = true;
   emailControl = new FormControl('', [Validators.required, Validators.email]);
   email = '';
-  resetCode=''
+  resetCode = '';
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.resetCode = params['code'];
       if (this.resetCode) {
-        // Hier kannst du den Reset-Code verwenden
-        console.log('Reset-Code:', this.resetCode);
-        // Weitere Logik oder Aktionen hier ausführen
       }
     });
   }
-  
+
   back() {
     this.router.navigateByUrl('/');
   }
-  
+
   getErrorMessage() {
     if (this.emailControl.hasError('required')) {
       return 'You must enter a value';
@@ -66,16 +63,19 @@ export class ResetComponent implements OnInit{
       let registrationData = {
         email: this.email,
         password: this.password,
-        resetCode:this.resetCode,
+        resetCode: this.resetCode,
       };
-      console.log(this.resetCode)
       let body = JSON.stringify(registrationData);
       //fetch server for registration
-      let response = await this.postToBackend(body, url);
-      await this.emailSend();
-      if (response.status === 200) {
-        this.navigateLogin();
-      } else this.router.navigateByUrl('registration');
+      try {
+        let response = await this.postToBackend(body, url);
+        await this.emailSend();
+        if (response.status === 200) {
+          this.navigateLogin();
+        } else this.router.navigateByUrl('registration');
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 

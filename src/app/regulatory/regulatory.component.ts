@@ -5,24 +5,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-regulatory',
   templateUrl: './regulatory.component.html',
-  styleUrls: ['./regulatory.component.scss']
+  styleUrls: ['./regulatory.component.scss'],
 })
-export class RegulatoryComponent implements OnInit{
-  constructor(private service:SharedServiceService,private router:Router){
-
-  }
-  token:any=""
+export class RegulatoryComponent implements OnInit {
+  constructor(private service: SharedServiceService, private router: Router) {}
+  token: any = '';
   ngOnInit(): void {
     this.service.token = localStorage.getItem('token');
     this.service.updateHeadLogText();
   }
 
-  getBack(){
-    if(this.service.token){
-      this.router.navigateByUrl('mainpage')
-    }else{
-      this.router.navigateByUrl('')
+  getBack() {
+    if (this.service.token) {
+      this.router.navigateByUrl('mainpage');
+    } else {
+      this.router.navigateByUrl('');
     }
   }
-   
 }

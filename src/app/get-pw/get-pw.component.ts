@@ -10,10 +10,10 @@ import {
 @Component({
   selector: 'app-get-pw',
   templateUrl: './get-pw.component.html',
-  styleUrls: ['./get-pw.component.scss']
+  styleUrls: ['./get-pw.component.scss'],
 })
 export class GetPwComponent {
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
 
   hide = true;
   hideConfirm = true;
@@ -23,31 +23,33 @@ export class GetPwComponent {
   back() {
     this.router.navigateByUrl('/');
   }
-  
+
   getErrorMessage() {
     if (this.emailControl.hasError('required')) {
       return 'You must enter a value';
     }
-
     return this.emailControl.hasError('email') ? 'Not a valid email' : '';
   }
 
   async getEmail() {
     //let url="http://127.0.0.1:8000/"
     let url = 'https://backend.kbl-developement.de/';
-    if (
-      this.getErrorMessage() == ''
-    ) {
+    if (this.getErrorMessage() == '') {
       let registrationData = {
         email: this.email,
       };
       let body = JSON.stringify(registrationData);
       //fetch server for registration
-      let response = await this.postToBackend(body, url);
-      await this.emailSend();
-      if (response.status === 200) {
-        this.navigateLogin();
-      } else this.router.navigateByUrl('registration');
+      try {
+        let response = await this.postToBackend(body, url);
+        await this.emailSend();
+        if (response.status === 200) {
+          this.navigateLogin();
+        } else this.router.navigateByUrl('registration');
+      } catch (error) {
+        console.log(error);
+        this.router.navigateByUrl('registration');
+      }
     }
   }
 
@@ -84,6 +86,3 @@ export class GetPwComponent {
     await new Promise((resolve) => setTimeout(resolve, 3000));
   }
 }
-
-
-

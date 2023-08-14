@@ -18,13 +18,14 @@
     .submit-btn{
         background-color: rgb(3, 3, 58);
         color:white;
-        margin-bottom:32px; ;
+        margin-bottom:48px; ;
     }
 }
 .back-arrow{
     position:absolute;
     left:20px;
     bottom: 20px;
+    cursor:pointer;
 }
 
 .yellow{
@@ -33,10 +34,10 @@
 
 .reset{
     text-decoration: none;
-    color:yellow;
+    color:blue;
     position: absolute;
-    bottom:2px;
-    right:2px;
+    bottom:4px;
+    right:4px;
      &:hover{
         cursor: pointer;
      }

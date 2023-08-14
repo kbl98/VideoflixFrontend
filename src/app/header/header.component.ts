@@ -5,33 +5,28 @@ import { SharedServiceService } from '../shared-service.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit{
-  constructor(private router:Router,private service:SharedServiceService){
-  
-  }
+export class HeaderComponent implements OnInit {
+  constructor(private router: Router, private service: SharedServiceService) {}
 
-  headLogText="";
+  headLogText = '';
   ngOnInit() {
     this.headLogText = this.service.headLogText; // Initialen Wert setzen
 
     // Änderungen an headLogText überwachen
     this.service.headLogTextChanged.subscribe((newText: string) => {
-    this.headLogText = newText;
+      this.headLogText = newText;
     });
   }
-  getLogin(){
-    if(this.headLogText=="Einloggen"){
-    this.router.navigateByUrl('/login');
-    }
-    else{
+  getLogin() {
+    if (this.headLogText == 'Einloggen') {
+      this.router.navigateByUrl('/login');
+    } else {
       this.service.updateHeadLogText();
-      this.service.token="";
-      localStorage.setItem("token","")
+      this.service.token = '';
+      localStorage.setItem('token', '');
       this.router.navigateByUrl('');
-      
     }
   }
-
 }
