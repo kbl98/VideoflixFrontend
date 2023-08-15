@@ -111,6 +111,8 @@ button{
         border:solid 1px black;
         padding: 3px;
         margin-right:calc(50% - 50px);
+        right: 0;
+        color: black;
         
         cursor: pointer;
         &:hover{
